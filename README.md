@@ -59,14 +59,13 @@ Para esta competição, desconsiderem fatores recentes como: conflitos armados, 
 
 ## 3.1 Atributos de origem
 
- Abaixo segue a descrição para cada um dos 15 atributos:<br><br>
 | **Atributos**                           |  **Tipo**  |  **Descrição**                                               |
 | ----------------------------------------|------------|--------------------------------------------------------------|
-| id                                      | int64      | Nº de indentificação                                         |
+| id                                      | int64      | Número de indentificação                                     |
 | classificacao_do_hotel                  | object     | Quantidade de estrelas do hotel                              |
 | meses_da_reserva_ate_o_check-in         | int64      | Quantidade de meses da reserva até o check-in                |
-| numero_de_pernoites_reservadas          | int64      | Nº de pernoites reservados                                   |
-| numero_de_hospedes                      | float64    | Nº de de hóspedes                                            |
+| numero_de_pernoites_reservadas          | int64      | Número de pernoites reservados                               |
+| numero_de_hospedes                      | float64    | Número de de hóspedes                                        |
 | regime_de_alimentacao                   | object     | Tipo de refeição inclusa                                     |
 | nacionalidade                           | object     | Nacionalidade                                                |
 | forma_de_reserva                        | object     | Como a reserva foi realizada                                 |
@@ -92,57 +91,36 @@ Para esta competição, desconsiderem fatores recentes como: conflitos armados, 
 ## Visualização dos meses da reserva até a data do check-in 
 ![scatter](./img/scatter.png)
 
+## Visualização da correlação de Atributos Categóricos utilizando a fórmula Cramer's.
+![cramer](./img/cramer.png)
+
+
 ## Visualização da correlação de Atributos Categóricos utilizando a fórmula do Coeficiente de Incerteza de Theil.
-![corr](./img/correlation.png)
+![theil](./img/theil.png)
 
 
 
 ## 4.0 Modelagem dos dados
 
 Nesta etapa, os dados foram preparados para o início das aplicações dos modelos de Machine Learning.<br>
-Foram utilizadas técnicas de Rescaling e Transformation, através de encodings e nature transformation.
+Foram utilizadas técnicas de Rescaling numéricas de categóricas, através do 'Label Encoder', 'Target Encoder' e 'Robust Scaler'
 
-## 7.1 Machine Learning Modeling
+## 5.0 Machine Learning Modeling
 
-Nesse processo de escolha de modelos de Machine Learning, foram relizados testes e treinamentos com cinco deles, são os seguintes: Random Forest Regressor, XGBoost Regressor, Linear Regression (Lasso), Linear Regression e Average Model.<br>
-Utilizei o Average Model como base para fazer comparações com os demais modelos.<br>
-Apliquei a técnica de Cross Validation para garantir a performance real sobre os dados selecionados.<br>
-Em termos de performance, o Random Forest Regressor se saiu melhor, todavia, eu escolhi o modelo XGBoost Regressor.<br>
-A razão dessa escolha é que o XGBoost é um modelo mais leve para operar em produção e não aparesenta diferença significativa de desempenho.
+Nesse processo de escolha de modelos de Machine Learning, foram relizados testes e treinamentos com seis tipos de Classificadores, são os seguintes: Random Forest Classifier, Extra Tree Classifier, XGBoost Classifier, LGBM Classifier, K-Nearest Neighbors e o Decision Tree Classifier.<br>
+A métrica utilizada para a avalição dos algoritmos de classificação foi o F1 Score.
 
 ## Performance
 
-![perform](./img/models_performance.png)
+![perform](./img/score.png)
 
-## Cross Validation Performance
 
-![cv](./img/cv_performance.png)
+## 6.0 Ensemble Learning
 
-## 8.0 Avaliação do Algorítimo
+Aqui aplicamos a técnica de Ensemble Learning, para aplicação de tal técnica utilizamos a biblioteca 'Voting Classifier' da 'Scikit Learn'.
+Este algoritmo combina o conceito de diferentes classificadores de Machine Learning, e usa a maioria dos votos ou a média das probabilidades previstas, para
+assim, realizar a predição da classe alvo. Essa classificação pode se usada para alcançar uma simetria de performance no balanceamento geral dos dados. Em outras palavras, o algoritmo potencializa as vantagens de um determinado algoritmo de Machine Learning para balancear as suas fraquezas na classificação.
 
-Hyperparameter Tunning:
+## Performance Final de:
 
-Aqui eu realizei diversos testes de desempenho a partir das variações de ajustes dos parâmetros do algoritmo, fiz o uso da técnica de Random Search para poder encontrar os melhores ajustes finais. No final a acurácia do XGBoost ficou na melhor posição e pude economizar tempo e dinheiro, já que não foram necessárias máquinas de Cloud Computing para poder executar os testes mais pesados, computacionalmente falando.
-
-Desempenho dos dados de teste:
-
-![finetune](./img/xgb_tuned.png)
-
-## 8.1 Tradução e interpretação de erros
-
-Chegamos então a demonstração do resultado final do projeto. Avaliei a performance do modelo com viés voltado ao negócio.<br>
-Aqui apresento o resultado financeiro e as margens de erro do modelo, tanto para o melhor cenário, quanto para o pior cenário.<br>
-Os valores totais representam a soma de todo o faturamento das lojas para as próximas seis semanas.
-
-![tuned](./img/perform.png)
-
-## Predições do Modelo de Machine Learning
-
-![pred](./img/predictions.png)
-
-## 9.0 Implementação do bot no Telegram
-
-Neste último passo realizei a implementação de um bot no Telegram para que qualquer usuário com acesso à internet possa solicitar os resultados das predições do modelo de Machine Learning. Este processo é realizado individualmente, ou seja, pode ser solicitada a prediçao por loja única da rede de vendas.<br>
-O bot foi criado dentro da própria plataforma do Telegram e o mesmo foi conectado ao serviço de Cloud do Render. O modelo de predição em Python passa então a operar 24/7.
-
-![telegram_bot](./img/telegram_bot.png)
+# 0.9731184748459742
