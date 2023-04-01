@@ -60,8 +60,8 @@ Para esta competição, desconsiderem fatores recentes como: conflitos armados, 
 ## 3.1 Atributos de origem
 
  Abaixo segue a descrição para cada um dos 15 atributos:<br><br>
-| **Atributos**                           |  **Tipo**  |  **Descrição**
-| --------------------------------------------------------------------------------------------------------------------|
+| **Atributos**                           |  **Tipo**  |  **Descrição**                                               |
+| ----------------------------------------|------------|--------------------------------------------------------------|
 | id                                      | int64      | Nº de indentificação                                         |
 | classificacao_do_hotel                  | object     | Quantidade de estrelas do hotel                              |
 | meses_da_reserva_ate_o_check-in         | int64      | Quantidade de meses da reserva até o check-in                |
@@ -77,7 +77,7 @@ Para esta competição, desconsiderem fatores recentes como: conflitos armados, 
 | reserva_com_estacionamento              | object     | Se a reserva inclui vaga para estacionamento de veículo      |
 | reserva_com_observacoes                 | object     | Observações a serem feitas no ato da reserva                 |
 | reserva_cancelada                       | int64      | Variável alvo, saber ser haverá cancelamento da reserva      |
-| --------------------------------------------------------------------------------------------------------------------|
+
 
 ## 3.2 Atributos criados
 
