@@ -127,11 +127,11 @@ assim, realizar a predição da classe alvo. Essa classificação pode se usada 
 
 ## 7.0 Conclusão
 
-Passadas as 32 horas de duração do Hack Days as submissões foram encerradas e o Leaderboard foi fechado.
+Passadas as 32 horas de duração do Hack Days, as submissões foram encerradas e o Leaderboard foi fechado.
 O trabalho desenvolvido pelo nosso time apresentou uma acurácia final de 0.97146 e nós realizamos 21 submissões ao todo. A nota mais alta é a que conta neste tipo de competição.<br>
 No fechamento geral do leaderboard ficamos na 4º colocação, provando que estávamos desenvolvendo nosso projeto no caminho certo. 
 A classificação final foi decidida na casa dos centésimos, mostrando assim, como a disputa foi super acirrada na reta final e as equipes estavam balanceadas e focadas na entrega de um bom trabalho final.<br>
-Nós da EquiPÃO dos dados conseguimos entregar um excelente trabalho, num intervalo de tempo super justo, então temos muito o que comemorar. 
+Nós da EquiPÃO dos dados conseguimos entregar um excelente trabalho, num intervalo de tempo super justo, então temos muito o que comemorar.<br>
 O aprendizado nesse curto espaço de tempo foi ENORME!!!
 Só tenho a agradecer os meus companheiros de equipe, são eles: Samuel, Juli, Valéria e Wilmara. Deixo também o meu agradecimento aos nossos professores e a todos da Comunidade DS!!!
 
