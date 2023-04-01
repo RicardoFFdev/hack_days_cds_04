@@ -27,7 +27,8 @@ Para esta competição, desconsiderem fatores recentes como: conflitos armados, 
 
 **Fonte:** [ Kaggle ](https://www.kaggle.com/competitions/cdshackdays4)
 
-## 2. Planejamento prévio
+
+## 2.0 Planejamento prévio
 
 * Nesta competição os alunos da Comunidade DS foram separados em Squad's com 5 estudantes cada. Ao todo tivemos 31 Squad's e mais de 180 participantes ao todo.
 * O meu Squad teve a seguinte formação:
@@ -35,7 +36,7 @@ Para esta competição, desconsiderem fatores recentes como: conflitos armados, 
 ![Squad](./img/squad.png)
 
 
-### Método CRISP-DS
+### O método CRISP-DS foi utilizado como base para o desenvolvimento deste projeto
 
 ![Crisp](./img/ciclo.png)
 
@@ -45,54 +46,50 @@ Para esta competição, desconsiderem fatores recentes como: conflitos armados, 
 * Python 3.09
 * Visual Studio Code
 * Jupyter Notebook
-* Bibliotecas: Seaborn, Plotly, Plotly Express, Pandas, Numpy, XGBoost, SKLearn e MatPlotLib
+* Bibliotecas: Seaborn, Pandas, Numpy, Inflection, Scipy, Dython_Nominal, XGBoost, SKLearn, Category Encoders e LightGBM
 
 ## 2.2 Produto final
 
-* 
+* Uma solução de classificação que aponte a melhor previsão possível para um cancelamento de uma reserva realizada na rede. Dessa maneira a rede hoteleira poderá tomar as melhores medidas cabíveis, embasada nos perfis dos seus clientes, para poder evitar o cancelamento de reservas já realizadas.
 
 
-## 4.0 Dados
-
+## 3.0 Dados
 
 ##### Estes são dados públicos que foram coletados na página web do [Kaggle](https://www.kaggle.com/competitions/cdshackdays4).
 
-## 4.1 Atributos de origem
+## 3.1 Atributos de origem
 
  Abaixo segue a descrição para cada um dos 15 atributos:<br><br>
-| **Atributos**         |  **Descrição**  |
-| ----------------------|------------------------------------------------------------------------------------------|
-|  id                   | um Id que representa um (Store, Date) concatenado dentro do conjunto de teste |
-|  Store                |  um id único para cada loja |
-|  Sales                |  o volume de vendas em um determinado dia |
-|  Customers            |  o número de clientes em um determinado dia |
-|  Open                 |  um indicador para saber se a loja estava aberta: 0 = fechada, 1 = aberta |
-|  StateHoliday         |  indica um feriado estadual. Normalmente todas as lojas, com poucas exceções, fecham nos feriados estaduais. Observe que todas as escolas fecham nos feriados e finais de semana. a = feriado, b = feriado da Páscoa, c = Natal, 0 = Nenhum |
-| SchoolHoliday         |  indica se (Store, Date) foi afetada pelo fechamento de escolas públicas |
-|  StoreType            |  diferencia entre 4 modelos de loja diferentes: a, b, c, d |
-|  Assortment           |  descreve um nível de sortimento: a = básico, b = extra, c = estendido |
-|  CompetitionDistance  |  distância em metros até a loja concorrente mais próxima |
-|  CompetitionOpenSince |  apresenta o ano e mês aproximados em que o concorrente mais próximo foi aberto |
-|  Promo                |  indica se uma loja está fazendo uma promoção naquele dia |
-|  Promo2               |  Promo2 é uma promoção contínua e consecutiva para algumas lojas: 0 = a loja não está participando, 1 = a loja está participando |
-|  Promo2Since          |  descreve o ano e a semana em que a loja começou a participar da Promo2 |
-|  PromoInterval        | descreve os intervalos consecutivos de início da promoção 2, nomeando os meses em que a promoção é iniciada novamente. Por exemplo. "Fev, maio, agosto, novembro" significa que cada rodada começa em fevereiro, maio, agosto, novembro de qualquer ano para aquela loja |
+| **Atributos**                           |  **Tipo**  |  **Descrição**
+| --------------------------------------------------------------------------------------------------------------------|
+| id                                      | int64      | Nº de indentificação                                         |
+| classificacao_do_hotel                  | object     | Quantidade de estrelas do hotel                              |
+| meses_da_reserva_ate_o_check-in         | int64      | Quantidade de meses da reserva até o check-in                |
+| numero_de_pernoites_reservadas          | int64      | Nº de pernoites reservados                                   |
+| numero_de_hospedes                      | float64    | Nº de de hóspedes                                            |
+| regime_de_alimentacao                   | object     | Tipo de refeição inclusa                                     |
+| nacionalidade                           | object     | Nacionalidade                                                |
+| forma_de_reserva                        | object     | Como a reserva foi realizada                                 |
+| ja_se_hospedou_anterioremente           | object     | Se o cliente já se hospedou no hotel                         |
+| tipo_do_quarto_reservado                | object     | Tipo de quanrto/suíte                                        |
+| reserva_feita_por_agencia_de_turismo    | object     | Se a reserva foi feita em agência de turismo                 |
+| reserva_feita_por_empresa               | object     | Se a reserva foi realizada por uma empresa                   |
+| reserva_com_estacionamento              | object     | Se a reserva inclui vaga para estacionamento de veículo      |
+| reserva_com_observacoes                 | object     | Observações a serem feitas no ato da reserva                 |
+| reserva_cancelada                       | int64      | Variável alvo, saber ser haverá cancelamento da reserva      |
+| --------------------------------------------------------------------------------------------------------------------|
 
-## 4.2 Atributos criados
+## 3.2 Atributos criados
 
-* competition_open_since_month -> A quantidade de meses desde de que uma loja competidora próxima foi aberta.
-* competition_open_since_year -> A quantidade de anos desde de que uma loja competidora próxima foi aberta.
-* promo2_since_week -> A quantidade de semanas desde a última promoção categoria 2.
-* promo2_since_year -> A quantidade de anos desde a última promoção categoria 2.
-* promo_interval -> O intervalo entre promoções na mesma loja
-* month_map -> Mapeamento dos meses 1: 'Jan', 2: 'Fev', 3: 'Mar', 4: 'Apr', 5: 'May', 6: 'Jun', 7: 'Jul', 8: 'Aug', 9: 'Sep', 10: 'Oct', 11: 'Nov' e 12: 'Dec'
+* estrelas_quarto -> o percentual de classificação do quarto entre 4 e 5 estrelas
+* combo_alimentacao -> o tipo de regime de alimentação derivado do tipo de quarto
+* nights_per_hotel -> a mediana dentre o tipo de quarto locado e a classificação do hotel.
 
 
-
-## 7.0 Modelagem dos dados
+## 4.0 Modelagem dos dados
 
 Nesta etapa, os dados foram preparados para o início das aplicações dos modelos de Machine Learning.<br>
-Foram utilizadas técnicas de Rescaling e Transformation, através de encodings e nature transformation. O pacote Boruta foi aplicado para direcionar quais são os melhores atributos e, dessa maneira, treinar o melhor modelo afim de se obter uma melhor acurácia.
+Foram utilizadas técnicas de Rescaling e Transformation, através de encodings e nature transformation.
 
 ## 7.1 Machine Learning Modeling
 
