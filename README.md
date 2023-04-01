@@ -86,6 +86,17 @@ Para esta competição, desconsiderem fatores recentes como: conflitos armados, 
 * nights_per_hotel -> a mediana dentre o tipo de quarto locado e a classificação do hotel.
 
 
+## Visualização dos atributos numéricos em gráfico de barras
+![histplot](./img/histplot.png)
+
+## Visualização dos meses da reserva até a data do check-in 
+![scatter](./img/scatter.png)
+
+## Visualização da correlação de Atributos Categóricos utilizando a fórmula do Coeficiente de Incerteza de Theil.
+![corr](./img/correlation.png)
+
+
+
 ## 4.0 Modelagem dos dados
 
 Nesta etapa, os dados foram preparados para o início das aplicações dos modelos de Machine Learning.<br>
