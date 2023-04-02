@@ -30,7 +30,7 @@ Para esta competição, desconsiderem fatores recentes como: conflitos armados, 
 
 ## 2.0 Planejamento prévio
 
-* Nesta competição os alunos da Comunidade DS foram separados em Squad's com 5 estudantes cada. Ao todo tivemos 31 Squad's e mais de 180 participantes ao todo.
+* Nesta competição os alunos da Comunidade DS foram divididos em Squad's com 5 estudantes cada. Ao todo tivemos 31 Squad's e mais de 180 participantes ao todo.
 * O meu Squad teve a seguinte formação:
 
 ![Squad](./img/squad.png)
@@ -46,6 +46,7 @@ Para esta competição, desconsiderem fatores recentes como: conflitos armados, 
 * Python 3.09
 * Visual Studio Code
 * Jupyter Notebook
+* Deepnote
 * Bibliotecas: Seaborn, Pandas, Numpy, Inflection, Scipy, Dython_Nominal, XGBoost, SKLearn, Category Encoders e LightGBM
 
 ### 2.2 Produto final
