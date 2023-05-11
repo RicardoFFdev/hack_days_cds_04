@@ -3,113 +3,112 @@
 ![Getting Started](./img/hotel_chain.png)
 
 
-# Sejam bem-vindos ao meu projeto de portfólio da competição de dados da Comunidade DS: "Hotel Chain Cancellation Rating"
+# Welcome to my portfolio project for the Community DS data competition: "Hotel Chain Cancellation Rating"
 
 
-## 1.0 Contexto do Negócio
+## 1.0 Business Context
 
-Contexto de Negócio
-A Costa del Data é uma tradicional rede hoteleira espanhola. Ela possui hoje hotéis de 4 e 5 estrelas em todo o território nacional.
+Costa del Data is a traditional Spanish hotel chain that currently operates 4 and 5-star hotels nationwide.
 
-A empresa está preocupada com as suas projeções para os próximos anos, visando a recuperação financeira com o fim das restrições impostas pela pandemia de Covid-19.
+The company is concerned about its projections for the coming years, aiming for financial recovery with the end of the restrictions imposed by the Covid-19 pandemic.
 
-Com a reabertura das fronteiras, a diminuição nas restrições de viagem e o aumento das vacinações, era esperado que o setor hoteleiro da Espanha retomasse os ganhos outrora esperados.
+With the reopening of borders, the easing of travel restrictions, and the increase in vaccinations, it was expected that the hotel sector in Spain would regain the expected gains.
 
-Na contramão desta expectativa, a Costa del Data tem visto um aumento em sua taxa de cancelamentos de reservas! A suspeita da diretoria é de que houve uma mudança no comportamento de cancelamentos por parte do consumidor após a pandemia, que ainda não foi compreendida pela rede.
+Contrary to this expectation, Costa del Data has seen an increase in its reservation cancellation rate! The management suspects that there has been a change in cancellation behavior by consumers after the pandemic, which has not yet been understood by the chain.
 
-Isso travou ações estratégicas críticas como a expansão da rede hoteleira, a reforma das unidades já com obras programadas, e a realização de ações de marketing direcionadas.
+This has hindered critical strategic actions such as expanding the hotel network, renovating already planned units, and conducting targeted marketing campaigns.
 
-O seu time de cientistas de dados foi contratado, para compreender o fenômeno dos cancelamentos de reservas. Em posse dos resultados, o time de marketing tomará decisões mais assertivas, focando nos públicos com menor incidência de cancelamento, revertendo assim o cenário negativo atual.
+Your team of data scientists has been hired to understand the phenomenon of reservation cancellations. With the results in hand, the marketing team will make more informed decisions, focusing on customer segments with lower cancellation rates, thus reversing the current negative trend.
 
-Com base no histórico de reservas dos hóspedes, seu time deve desenvolver um modelo de previsão de cancelamentos. O modelo deve prever a variável alvo "Reserva Cancelada", retornando 1 em caso de cancelamento, e 0 em caso de não cancelamento.
+Based on the historical reservation data, your team is tasked with developing a cancellation prediction model. The model should predict the target variable "Reservation Canceled," returning 1 in case of cancellation and 0 otherwise.
 
-Para esta competição, desconsiderem fatores recentes como: conflitos armados, aumento de preços energéticos, acordos comerciais e aprovações orçamentárias que envolvam a Espanha, Europa ou mesmo o mundo.
+For this competition, disregard recent factors such as armed conflicts, energy price increases, commercial agreements, and budget approvals involving Spain, Europe, or the world.
 
-**Fonte:** [ Kaggle ](https://www.kaggle.com/competitions/cdshackdays4)
+**Source:** [ Kaggle ](https://www.kaggle.com/competitions/cdshackdays4)
 
 
-## 2.0 Planejamento prévio
+## 2.0 Preliminary Planning
 
-* Nesta competição os alunos da Comunidade DS foram divididos em Squad's com 5 estudantes cada. Ao todo tivemos 31 Squad's e mais de 180 participantes ao todo.
-* O meu Squad teve a seguinte formação:
+* In this competition, Community DS students were divided into squads of 5 participants each. In total, there were 31 squads and over 180 participants.
+* My squad had the following members:
 
 ![Squad](./img/squad.png)
 
 
-### O método CRISP-DS foi utilizado como base para o desenvolvimento deste projeto
+### The CRISP-DM method was used as the basis for developing this project.
 
 ![Crisp](./img/ciclo.png)
 
 
-### 2.1 Ferramentas, IDE's e Bibliotecas
+### 2.1 Tools, IDEs, and Libraries
 
 * Python 3.09
 * Visual Studio Code
 * Jupyter Notebook
 * Deepnote
-* Bibliotecas: Seaborn, Pandas, Numpy, Inflection, Scipy, Dython_Nominal, XGBoost, SKLearn, Category Encoders e LightGBM
+* Libraries: Seaborn, Pandas, Numpy, Inflection, Scipy, Dython_Nominal, XGBoost, SKLearn, Category Encoders e LightGBM
 
-### 2.2 Produto final
+### 2.2 Final Product
 
-* Uma solução de classificação que aponte a melhor previsão possível para um cancelamento de uma reserva realizada na rede. Dessa maneira a rede hoteleira poderá tomar as melhores medidas cabíveis, embasada nos perfis dos seus clientes, para poder evitar o cancelamento de reservas já realizadas.
+* A classification solution that provides the best possible prediction for a reservation cancellation within the hotel chain. This will enable the hotel chain to make informed decisions based on customer profiles to prevent cancellations of existing reservations.
 
 
-## 3.0 Dados
+## 3.0 Data
 
-##### Estes dados são públicos e foram baixados na página web do [Kaggle](https://www.kaggle.com/competitions/cdshackdays4).
+##### These data are public and were downloaded from the [Kaggle](https://www.kaggle.com/competitions/cdshackdays4).
 
-### 3.1 Atributos de origem
+### 3.1 Source Attributes
 
-| **Atributos**                           |  **Tipo**  |  **Descrição**                                               |
+| **Attributes**                           |  **Type**  |  **Description**                                            |
 | ----------------------------------------|------------|--------------------------------------------------------------|
-| id                                      | int64      | Número de indentificação                                     |
-| classificacao_do_hotel                  | object     | Quantidade de estrelas do hotel                              |
-| meses_da_reserva_ate_o_check-in         | int64      | Quantidade de meses da reserva até o check-in                |
-| numero_de_pernoites_reservadas          | int64      | Número de pernoites reservados                               |
-| numero_de_hospedes                      | float64    | Número de de hóspedes                                        |
-| regime_de_alimentacao                   | object     | Tipo de refeição inclusa                                     |
-| nacionalidade                           | object     | Nacionalidade                                                |
-| forma_de_reserva                        | object     | Como a reserva foi realizada                                 |
-| ja_se_hospedou_anterioremente           | object     | Se o cliente já se hospedou no hotel                         |
-| tipo_do_quarto_reservado                | object     | Tipo de quanrto/suíte                                        |
-| reserva_feita_por_agencia_de_turismo    | object     | Se a reserva foi feita em agência de turismo                 |
-| reserva_feita_por_empresa               | object     | Se a reserva foi realizada por uma empresa                   |
-| reserva_com_estacionamento              | object     | Se a reserva inclui vaga para estacionamento de veículo      |
-| reserva_com_observacoes                 | object     | Observações a serem feitas no ato da reserva                 |
-| reserva_cancelada                       | int64      | Variável alvo, saber ser haverá cancelamento da reserva      |
+| id                                      | int64      | Identification number                                        |
+| classificacao_do_hotel                  | object     | Hotel rating (number of stars)                               |
+| meses_da_reserva_ate_o_check-in         | int64      | Number of months from the reservation date to check-in date  |
+| numero_de_pernoites_reservadas          | int64      | Number of reserved nights                                    |
+| numero_de_hospedes                      | float64    | Number of guests                                             |
+| regime_de_alimentacao                   | object     | Type of included meal plan                                   |
+| nacionalidade                           | object     | Nationality                                                  |
+| forma_de_reserva                        | object     | Booking channel                                              |
+| ja_se_hospedou_anterioremente           | object     | Whether the guest has previously stayed at the hotel         |
+| tipo_do_quarto_reservado                | object     | Reserved room type                                           |
+| reserva_feita_por_agencia_de_turismo    | object     | Whether the booking was made through a travel agency         |
+| reserva_feita_por_empresa               | object     | Whether the booking was made by a company                    |
+| reserva_com_estacionamento              | object     | Whether the reservation includes parking for a vehicle       |
+| reserva_com_observacoes                 | object     | Special requests made during the reservation                 |
+| reserva_cancelada                       | int64      | Target variable indicating if the reservation was cancelled  |
 
 
-### 3.2 Atributos criados
+### 3.2 Created Attributes
 
-* estrelas_quarto -> o percentual de classificação do quarto entre 4 e 5 estrelas
-* combo_alimentacao -> o tipo de regime de alimentação derivado do tipo de quarto
-* nights_per_hotel -> a mediana dentre o tipo de quarto locado e a classificação do hotel.
+* room_rating_percentage -> the percentage of room rating between 4 and 5 stars
+* meal_plan_combo -> the derived meal plan based on the room type
+* nights_per_hotel -> the median value between the reserved room type and the hotel rating.
 
 
-## Visualização dos atributos numéricos em gráfico de barras
+## Visualization of Numerical Attributes in Bar Graph
 ![histplot](./img/histplot.png)
 
-## Visualização dos meses da reserva até a data do check-in 
+## Visualization of Months from Reservation to Check-in Date 
 ![scatter](./img/scatter.png)
 
-## Visualização da correlação de Atributos Categóricos utilizando a fórmula Cramer's.
+## Visualization of Categorical Attribute Correlation using Cramer's Formula
 ![cramer](./img/cramer.png)
 
 
-## Visualização da correlação de Atributos Categóricos utilizando a fórmula do Coeficiente de Incerteza de Theil.
+## Visualization of Categorical Attribute Correlation using Theil's Uncertainty Coefficient
 ![theil](./img/theil.png)
 
 
 
-## 4.0 Modelagem dos dados
+## 4.0 Data Modelling
 
-Nesta etapa, os dados foram preparados para o início das aplicações dos modelos de Machine Learning.<br>
-Foram utilizadas técnicas de Rescaling do tipo numérico e categórico, através do 'Label Encoder', 'Target Encoder' e 'Robust Scaler'
+In this stage, the data was prepared for the start of the Machine Learning modeling process.<br>
+Numerical and categorical rescaling techniques were applied using 'Label Encoder', 'Target Encoder', and 'Robust Scaler'.
 
 ## 5.0 Machine Learning Modeling
 
-Nesse processo de escolha de modelos de Machine Learning, foram relizados testes e treinamentos com seis tipos de Classificadores, eles são os seguintes: Random Forest Classifier, Extra Tree Classifier, XGBoost Classifier, LGBM Classifier, K-Nearest Neighbors e o Decision Tree Classifier.<br>
-A métrica utilizada para a avalição dos algoritmos de classificação foi o F1 Score.
+In the process of selecting Machine Learning models, tests and training were performed using six types of classifiers: Random Forest Classifier, Extra Tree Classifier, XGBoost Classifier, LGBM Classifier, K-Nearest Neighbors, and Decision Tree Classifier.<br>
+The evaluation metric used for the classification algorithms was the F1 Score.
 
 ## Performance
 
@@ -118,23 +117,22 @@ A métrica utilizada para a avalição dos algoritmos de classificação foi o F
 
 ## 6.0 Ensemble Learning
 
-Aqui aplicamos a técnica de Ensemble Learning, para aplicação de tal técnica utilizamos a biblioteca 'Voting Classifier' da 'Scikit Learn'.<br>
-Este algoritmo combina o conceito de diferentes classificadores de Machine Learning, e usa a maioria dos votos ou a média das probabilidades previstas, para
-assim, realizar a predição da classe alvo. Essa classificação pode se usada para alcançar uma simetria de performance no balanceamento geral dos dados. Em outras palavras, o algoritmo potencializa as vantagens de um determinado algoritmo de Machine Learning para balancear as suas fraquezas na classificação.
+Here, we applied the technique of Ensemble Learning using the 'Voting Classifier' from the 'Scikit-learn' library.<br>
+This algorithm combines the concepts of different Machine Learning classifiers and uses majority voting or averaging of predicted probabilities to make predictions for the target class. This classification can be used to achieve performance symmetry in the overall data balance. In other words, the algorithm leverages the strengths of different Machine Learning algorithms to balance out their weaknesses in classification.
 
-## Performance Final de:
+## Final Performance:
 
 # 0.9731184748459742
 
 ## 7.0 Conclusão
 
-Passadas as 32 horas de duração do Hack Days, as submissões foram encerradas e o Leaderboard foi fechado.
-O trabalho desenvolvido pelo nosso time apresentou uma acurácia final de 0.97146 e nós realizamos 21 submissões ao todo. A nota mais alta é a que conta neste tipo de competição.<br>
-No fechamento geral do leaderboard ficamos na 4º colocação, provando que estávamos desenvolvendo nosso projeto no caminho certo. 
-A classificação final foi decidida na casa dos centésimos, mostrando assim, como a disputa foi super acirrada na reta final e as equipes estavam balanceadas e focadas na entrega de um bom trabalho final.<br>
-Nós da EquiPÃO dos dados conseguimos entregar um excelente trabalho, num intervalo de tempo super justo, então temos muito o que comemorar.<br>
-O aprendizado nesse curto espaço de tempo foi ENORME!!!
-Só tenho a agradecer os meus companheiros de equipe, são eles: Samuel, Juli, Valéria e Wilmara. Deixo também o meu agradecimento aos nossos professores e a todos da Comunidade DS!!!
+After 32 hours of Hack Days, submissions were closed and the Leaderboard was finalized.
+Our team's work achieved a final accuracy of 0.97146, and we made a total of 21 submissions. The highest score is the one that counts in this type of competition.<br>
+In the overall Leaderboard, we secured the 4th position, proving that we were on the right track with our project.
+The final ranking was decided in the hundredths place, demonstrating how intense the competition was in the final stretch, and teams were well-balanced and focused on delivering a good final work.<br>
+The EquiPÃO dos dados team managed to deliver an excellent work within a fair timeframe, so we have a lot to celebrate.<br>
+The learning experience in this short period of time was HUGE!!!
+I would like to express my gratitude to my teammates: Samuel, Juli, Valéria, and Wilmara. I also want to thank our teachers and everyone in the DS Community!!!
 
 
 ## Leaderboard
