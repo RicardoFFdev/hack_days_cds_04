@@ -37,7 +37,7 @@ For this competition, disregard recent factors such as armed conflicts, energy p
 
 ### The CRISP-DM method was used as the basis for developing this project.
 
-![Crisp](./img/ciclo.png)
+![Crisp](./img/crisp.jpg)
 
 
 ### 2.1 Tools, IDEs, and Libraries
