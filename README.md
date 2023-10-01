@@ -124,7 +124,7 @@ This algorithm combines the concepts of different Machine Learning classifiers a
 
 # 0.9731184748459742
 
-## 7.0 Conclusão
+## 7.0 Conclusion
 
 After 32 hours of Hack Days, submissions were closed and the Leaderboard was finalized.
 Our team's work achieved a final accuracy of 0.97146, and we made a total of 21 submissions. The highest score is the one that counts in this type of competition.<br>
